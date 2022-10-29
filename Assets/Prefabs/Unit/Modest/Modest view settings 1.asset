@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7647182a257a4c97aa1cfc2b4119ad69, type: 3}
+  m_Name: Modest view settings 1
+  m_EditorClassIdentifier: 
+  <Name>k__BackingField: Modest Monster
+  <Image>k__BackingField: {fileID: 21300000, guid: f61ec0345332d9e4293226cae0a2c3ed, type: 3}
+  <Cost>k__BackingField: 30
+  <Monster>k__BackingField: {fileID: -6101316272030179602, guid: 69bd33038bff5d34b830cf54a78d5d92, type: 3}
+  <SpawnTime>k__BackingField: 5

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7647182a257a4c97aa1cfc2b4119ad69, type: 3}
+  m_Name: Sceleton view settings
+  m_EditorClassIdentifier: 
+  <Name>k__BackingField: Sceleton Monster
+  <Image>k__BackingField: {fileID: 21300000, guid: eff85fe546d7a0049a416fb181675469, type: 3}
+  <Cost>k__BackingField: 15
+  <Monster>k__BackingField: {fileID: 8177751370917575494, guid: 72ec121c6add51f44b9acb508c7430ab, type: 3}
+  <SpawnTime>k__BackingField: 1
