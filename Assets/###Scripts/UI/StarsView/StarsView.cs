@@ -44,7 +44,6 @@ public class StarsView : MonoBehaviour
     
     private void TryUpgrade()
     {
-        // add walet logick
         if (_count >= _stars.Length) return;
 
         if (!_isInitCard) return;

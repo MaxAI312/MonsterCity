@@ -25,7 +25,6 @@ public class CameraController : MonoBehaviour
     private Coroutine _showMessage;
 
     public event Action<Vector3> Clicked;
-    //public Vector3 PointClick { get; private set; }
 
     private void Start()
     {
@@ -40,18 +39,8 @@ public class CameraController : MonoBehaviour
         {
             if (Input.GetMouseButtonUp(0) && _isMooving == false)
                 if (TryFindTouchPoint(out RaycastHit hit))
-                {
                     Clicked?.Invoke(hit.point);
-                    //PointClick
-                }
-                else
-                {
-                    // _canSpawnText.gameObject.SetActive(true);
-                    //
-                    // _showMessage = StartCoroutine(_showOnTimer());
-                }
-
-
+            
             if (Input.GetMouseButtonDown(0))
                 _touchValue = _camera.ScreenToWorldPoint(Input.mousePosition);
 
