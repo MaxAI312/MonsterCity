@@ -10,6 +10,7 @@ public class Fence : Target
 
     private RayfireRigid _rayfire;
     private RayfireBomb _bomb;
+    private float delayBeforeExplosion = 0f;
     
     private bool _isAlive = true;
 
@@ -45,6 +46,6 @@ public class Fence : Target
         }
         _rayfire.Demolish();
     
-        _bomb.Explode(0);
+        _bomb.Explode(delayBeforeExplosion);
     }
 }

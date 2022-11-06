@@ -2,8 +2,10 @@ using UnityEngine;
 
 public class DemolitionPlants : MonoBehaviour
 {
+    [SerializeField] private float _durationBeforeDestroy = 0.5f;
+    
     private ParticleSystem _particle;
-
+    
     private void Start()
     {
         _particle = GetComponentInChildren<ParticleSystem>();
@@ -15,7 +17,7 @@ public class DemolitionPlants : MonoBehaviour
         {
             _particle.Play();
 
-            Destroy(gameObject, 0.5f);
+            Destroy(gameObject, _durationBeforeDestroy);
         }
     }
 }

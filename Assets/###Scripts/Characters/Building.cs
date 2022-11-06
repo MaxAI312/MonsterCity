@@ -24,7 +24,8 @@ public class Building : Target
         if (_isAlive)
         {
             _health -= damage;
-            if (_takeDamageEffect != null) _takeDamageEffect.Play();
+            if (_takeDamageEffect != null)
+                _takeDamageEffect.Play();
             if (_health <= 0)
             {
                 _isAlive = false;

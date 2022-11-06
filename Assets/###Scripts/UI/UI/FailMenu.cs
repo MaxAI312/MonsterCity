@@ -1,1 +1,3 @@
-public class FailMenu : Menu { }
+public class FailMenu : Menu
+{
+}

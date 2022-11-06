@@ -5,7 +5,7 @@ public class Npc : Unit
     [SerializeField] private NpcRadar _radar;
 
     public NpcRadar Radar => _radar;
-    public int Raward { get; private set; } = 5;
+    public int Reward { get; private set; } = 5;
 
     public override void Awake()
     {

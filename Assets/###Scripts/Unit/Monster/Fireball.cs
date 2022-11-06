@@ -8,6 +8,7 @@ public class Fireball : MonoBehaviour
     private Transform _target;
     private Vector3 _startPosition;
     private float _timer;
+    private float _maxTimerValue = 1f;
 
     private void Awake()
     {
@@ -22,7 +23,7 @@ public class Fireball : MonoBehaviour
         var targetPoint = new Vector3(_target.transform.position.x, _startPosition.y, _target.transform.position.z);
         
         transform.position = Vector3.Lerp(_startPosition, targetPoint, _timer);
-        if(_timer >= 1)
+        if(_timer >= _maxTimerValue)
             ShowDisappear();
     }
 

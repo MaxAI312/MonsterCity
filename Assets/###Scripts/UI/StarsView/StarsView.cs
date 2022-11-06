@@ -13,8 +13,7 @@ public class StarsView : MonoBehaviour
     private int _count;
 
     public event Action<int> Upgraded;
-
-
+    
     private void Start()
     {
         _wallet = FindObjectOfType<Wallet>();

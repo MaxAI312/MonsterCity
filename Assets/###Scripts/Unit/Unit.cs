@@ -15,6 +15,7 @@ public abstract class Unit : Target
     [SerializeField] private float _attackDistance;
 
     private bool _isAlive = true;
+    private float _delayBeforeFindTarget = 1.1f;
 
     public Target Target { get; set; }
     public LevelObserver LevelObserver { get; private set; }
@@ -35,7 +36,7 @@ public abstract class Unit : Target
     {
         Sequence sequence = DOTween.Sequence();
 
-        sequence.AppendInterval(1.1f);
+        sequence.AppendInterval(_delayBeforeFindTarget);
 
         sequence.AppendCallback(() =>
         {
@@ -85,7 +86,7 @@ public abstract class Unit : Target
 
     public override event Action<Target> Died;
 
-    public virtual void SetAttackState()
+    public void SetAttackState()
     {
         IsAttack = true;
         NavMeshAgent.enabled = false;
@@ -110,6 +111,7 @@ public abstract class Unit : Target
         Died?.Invoke(this);
     }
 
+    //Used in Attack
     public void HitEnemy()
     {
         if (Target == null)

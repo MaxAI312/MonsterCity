@@ -16,6 +16,14 @@ public class CameraController : MonoBehaviour
     private float _zoomMin = 10;
     private float _zoomMax = 35;
     private float _startZoomValue = 28;
+    private float _maxNumberOfTouch = 2;
+    private float _minLimitX = -0.1f;
+    private float _maxLimitX = 0.1f;
+    private float _minLimitY = -0.1f;
+    private float _maxLimitY = 0.1f;
+    private float _maxDistanceRaycast = 1000f;
+    private float _durationMovingX = 0.5f;
+    private float _durationMovingZ = 0.5f;
     private Camera _camera;
     private Vector3 _touchValue;
     private bool _isMooving;
@@ -44,14 +52,14 @@ public class CameraController : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
                 _touchValue = _camera.ScreenToWorldPoint(Input.mousePosition);
 
-            if (Input.touchCount == 2)
+            if (Input.touchCount == _maxNumberOfTouch)
                 MakeZoom(CalculateValueToZoom() * _speedZoom);
 
             if (Input.GetMouseButton(0))
             {
                 Vector3 direction = (CalculateValueTOMoveDirection());
 
-                _isMooving = (direction.x > 0.1f || direction.x < -0.1f || direction.z > 0.1f || direction.z < -0.1f);
+                _isMooving = (direction.x > _maxLimitX || direction.x < _minLimitX || direction.z > _maxLimitY || direction.z < _minLimitY);
 
                 MakeMove(CalculateValueTOMoveDirection());
             }
@@ -60,31 +68,25 @@ public class CameraController : MonoBehaviour
         }
     }
 
-    private IEnumerator _showOnTimer()
-    {
-        yield return new WaitForSeconds(1);
-        _canSpawnText.gameObject.SetActive(false);
-    }
-
     private bool TryFindTouchPoint(out RaycastHit raycastHit)
     {
         Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
 
-        return Physics.Raycast(ray, out raycastHit, 1000f, _layerMask);
+        return Physics.Raycast(ray, out raycastHit, _maxDistanceRaycast, _layerMask);
     }
 
     private Vector3 CalculateValueTOMoveDirection() => _touchValue - _camera.ScreenToWorldPoint(Input.mousePosition);
 
     private float CalculateValueToZoom()
     {
-        Touch touchZero = Input.GetTouch(0);
-        Touch touchOne = Input.GetTouch(1);
+        Touch firstTouch = Input.GetTouch(0);
+        Touch secondTouch = Input.GetTouch(1);
 
-        Vector2 touchZeroLastPosition = touchZero.position - touchZero.deltaPosition;
-        Vector2 touchOneLastPosition = touchOne.position - touchOne.deltaPosition;
+        Vector2 touchZeroLastPosition = firstTouch.position - firstTouch.deltaPosition;
+        Vector2 touchOneLastPosition = secondTouch.position - secondTouch.deltaPosition;
 
         float distanceTouch = (touchZeroLastPosition - touchOneLastPosition).magnitude;
-        float currentDistanceTouch = (touchZero.position - touchOne.position).magnitude;
+        float currentDistanceTouch = (firstTouch.position - secondTouch.position).magnitude;
         float difference = currentDistanceTouch - distanceTouch;
         return difference;
     }
@@ -102,9 +104,9 @@ public class CameraController : MonoBehaviour
         if (cameraPosition.z + direction.z <= _rightDown.y)
             direction.z = 0;
 
-        _camera.transform.DOLocalMoveX(direction.x, 0.5f).SetRelative().SetEase(Ease.Linear);
+        _camera.transform.DOLocalMoveX(direction.x, _durationMovingX).SetRelative().SetEase(Ease.Linear);
 
-        _camera.transform.DOLocalMoveZ(direction.z, 0.5f).SetRelative().SetEase(Ease.Linear);
+        _camera.transform.DOLocalMoveZ(direction.z, _durationMovingZ).SetRelative().SetEase(Ease.Linear);
     }
 
     private void MakeZoom(float newZoom)

@@ -12,12 +12,9 @@ public class NpcRadar : MonoBehaviour
             var monster = other.GetComponent<Monster>();
 
             if (monster)
-            {
                 MonsterTaken?.Invoke(monster);
-            }
         }
     }
 
     public event Action<Monster> MonsterTaken;
 }
-

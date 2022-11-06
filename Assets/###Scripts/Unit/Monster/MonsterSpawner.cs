@@ -11,6 +11,7 @@ public class MonsterSpawner : MonoBehaviour
 
     private MonsterView _currentCard;
     private ParticleSystem _spawnPatricle;
+    private float _spawnEffectOffsetX = 0.2f;
 
     public CameraController CameraController => _cameraController;
     public Shop Shop => _shop;
@@ -53,10 +54,8 @@ public class MonsterSpawner : MonoBehaviour
             _levelObserver.AddMonsterToCollection(spawned);
             _currentCard.StartNewProgresBar();
 
-            _spawnPatricle.transform.position = new Vector3(position.x, position.y + 0.2f, position.z);
+            _spawnPatricle.transform.position = new Vector3(position.x, position.y + _spawnEffectOffsetX, position.z);
             _spawnPatricle.Play();
-
-            //}
         }
     }
 }

@@ -14,16 +14,6 @@ public class Obstacle : MonoBehaviour
         _bomb = GetComponent<RayfireBomb>();
     }
 
-
-    public  void TryDestroy()
-    {
-        {
-            BlowUp();
-            
-            Destroy(gameObject, 1.5f);
-        }
-    }
-
     private void BlowUp()
     {
         _rayfire.Demolish();

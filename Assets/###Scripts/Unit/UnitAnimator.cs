@@ -1,7 +1,6 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
-
 public class UnitAnimator : MonoBehaviour
 {
     private const string Run = nameof(Run);

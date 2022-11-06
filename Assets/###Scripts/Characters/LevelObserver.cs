@@ -1,27 +1,19 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.AI;
-using UnityEngine.UI;
 
 public class LevelObserver : MonoBehaviour
 {
     [SerializeField] private Wallet _wallet;
-
-    public Wallet Wallet => _wallet;
-
+    
     private List<Target> _npcs = null;
     private List<Monster> _monsters = null;
 
     public int NpcCount { get; private set; }
-    public int MonsterCount => _monsters.Count;
-
+    
     public event Action<int> KilledNpc;
     public event Action AllKilledTargets;
-    public event Action<int> KilledMonster;
-    public event Action AllKilledMonsters;
 
     private void Awake()
     {
@@ -67,7 +59,7 @@ public class LevelObserver : MonoBehaviour
 
             if (_npcs.Contains(unit))
             {
-                _wallet.Fill(npc.Raward);
+                _wallet.Fill(npc.Reward);
                 _npcs.Remove(npc);
             }
             KilledNpc?.Invoke(_npcs.Count);

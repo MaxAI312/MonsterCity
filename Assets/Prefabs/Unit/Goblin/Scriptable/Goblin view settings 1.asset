@@ -15,5 +15,5 @@ MonoBehaviour:
   <Name>k__BackingField: Goblin Monster
   <Image>k__BackingField: {fileID: 21300000, guid: 60d2db44e80300340a546647bef675e8, type: 3}
   <Cost>k__BackingField: 5
-  <Monster>k__BackingField: {fileID: 2209452837808928606, guid: 6c8576e16dff46544be9ad9bc56a4cae, type: 3}
+  <Monster>k__BackingField: {fileID: -2151263221798461634, guid: 6c8576e16dff46544be9ad9bc56a4cae, type: 3}
   <SpawnTime>k__BackingField: 4

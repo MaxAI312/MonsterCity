@@ -7,7 +7,9 @@ public class Shop : MonoBehaviour
     [SerializeField] private Data _data;
     [SerializeField] private MonsterView[] _views;
     [SerializeField] private bool _debug;
-    
+
+    private Vector3 _scaleSelectedCard = new Vector3(1.3f, 1.3f, 1.3f);
+    private Vector3 _scaleUnSelectedCard = new Vector3(1f, 1f, 1f);
     
     public event Action<IMonsterData> ItemSelected;
 
@@ -40,21 +42,19 @@ public class Shop : MonoBehaviour
 
     private void OnSetGlow(MonsterView monsterView)
     {
-        Vector3 scaleSelectedCard = new Vector3(1.3f, 1.3f, 1.3f);
-        Vector3 scaleUnSelectedCard = new Vector3(1f, 1f, 1f);
         float timeToScale = 0.3f;
         
         foreach (var view in _views)
         {
             if (monsterView == view)
             {
-                view.transform.DOScale(scaleSelectedCard, timeToScale);
+                view.transform.DOScale(_scaleSelectedCard, timeToScale);
 
                 view.SetGlow(true);
             }
             else
             {
-                view.transform.DOScale(scaleUnSelectedCard, timeToScale);
+                view.transform.DOScale(_scaleUnSelectedCard, timeToScale);
 
                 view.SetGlow(false);
             }

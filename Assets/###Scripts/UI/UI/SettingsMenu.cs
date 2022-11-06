@@ -1,1 +1,3 @@
-public class SettingsMenu : Menu { }
+public class SettingsMenu : Menu
+{
+}

@@ -551,14 +551,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 433096715}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 464.29196, y: 129.78014, z: 70.83581}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2027027604}
   - {fileID: 999902337}
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_Father: {fileID: 1747946256}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &439039970
 PrefabInstance:
@@ -2803,6 +2803,7 @@ Transform:
   - {fileID: 1171673406}
   - {fileID: 1384025196}
   - {fileID: 730701995}
+  - {fileID: 433096716}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3975,6 +3976,10 @@ PrefabInstance:
     - target: {fileID: 4747991931311878623, guid: 78a486f656823a545bf8ab4c87562680, type: 3}
       propertyPath: m_Layer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4820240091202747816, guid: 78a486f656823a545bf8ab4c87562680, type: 3}
+      propertyPath: m_Name
+      value: Krush, Kill 'n' Destroy
       objectReference: {fileID: 0}
     - target: {fileID: 4820240091840661396, guid: 78a486f656823a545bf8ab4c87562680, type: 3}
       propertyPath: m_Name

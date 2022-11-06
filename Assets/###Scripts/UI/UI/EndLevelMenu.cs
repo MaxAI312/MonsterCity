@@ -1,1 +1,3 @@
-public class EndLevelMenu : Menu { }
+public class EndLevelMenu : Menu
+{
+}
